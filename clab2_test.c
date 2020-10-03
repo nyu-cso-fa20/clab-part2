@@ -282,7 +282,7 @@ void TestHashTable()
 
 void TestBonusWordCount()
 {
-  printf("---Bonus: Test wordcount.c\n");  
+  printf("---Bonus: Test parse_word.c\n");  
   char buf[5000];
   bzero(buf, 5000);
   char *s = "abcdefghijklmnopqrstuvwxyz";
@@ -315,7 +315,7 @@ void TestBonusWordCount()
         tuples[i].val);
   }
   printf("passed\n");
-  printf("---Bonus: Test wordcount.c Passed\n");  
+  printf("---Bonus: Test parse_word.c Passed\n");  
 }
 
 int main(int argc, char **argv)
