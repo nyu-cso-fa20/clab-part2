@@ -84,7 +84,7 @@ int main(int argc, char **argv)
 	// it now contains the index of the first arguments
   // that is not an option
 	if (argc - optind < 1) {
-    printf("wordcount -t <number of topK words> <filename>\n");
+    printf("wordcount -k <number of topK words> <filename>\n");
 		exit(1);
 	}
 
