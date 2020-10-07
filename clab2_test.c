@@ -66,7 +66,7 @@ void TestStr()
           "string_cmp s1=%s s2=%s should return sign %d (instead of sign %d)", 
           test_s1s[i], test_s2s[i], sgn(strcmp(test_s1s[i], test_s2s[i])), sgn(r));
     r = string_cmp(test_s2s[i], test_s1s[i]);
-    panic_cond(r == strcmp(test_s2s[i], test_s1s[i]), 
+    panic_cond(sgn(r) == sgn(strcmp(test_s2s[i], test_s1s[i])), 
           "string_cmp s1=%s s2=%s should return sign %d (instead of sign %d)", 
           test_s2s[i], test_s1s[i], sgn(strcmp(test_s2s[i], test_s1s[i])), sgn(r));
   }
