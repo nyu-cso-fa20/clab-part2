@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <assert.h>
+#include <getopt.h>
 
 #include "panic_cond.h"
 #include "str.h"
@@ -318,10 +319,26 @@ void TestBonusWordCount()
   printf("---Bonus: Test parse_word.c Passed\n");  
 }
 
+typedef void (*TestFunc)();
+
 int main(int argc, char **argv)
 {
-  TestStr();
-  TestList();
-  TestHashTable();
-  TestBonusWordCount();
+	TestFunc fs[4]= {TestStr, TestList, TestHashTable, TestBonusWordCount};
+	int which_test = 0;
+	int c;
+	while ((c = getopt(argc, argv, "t:")) != -1) {
+		switch (c) {
+			case 't':
+				which_test = atoi(optarg);
+				break;
+    }
+  }
+  
+  for (int i = 0; i < 5; i++) {
+		if ((which_test == 0) || (which_test == (i+1))) {
+			fs[i]();
+      if (which_test > 0) 
+        break;
+    }
+  }
 }
